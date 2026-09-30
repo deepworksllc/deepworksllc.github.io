@@ -27,11 +27,28 @@
   li a:hover { border-color: #0021F3; color: #0021F3; }
   li .desc { display: block; font-weight: 400; color: #5B6472; font-size: 14px; margin-top: 4px; }
   .back { font-size: 14px; text-decoration: none; }
+  .nav {
+    max-width: 760px; margin: 0 auto; padding: 20px 0 0;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  }
+  .nav a { color: #0F1115; text-decoration: none; font-size: 14px; margin-left: 14px; }
+  .nav a:hover { color: #0021F3; }
+  .nav a[aria-current="page"] { color: #0021F3; font-weight: 600; }
 </style>
 </head>
 <body>
 <div class="page">
+  <nav class="nav">
   <a class="brand" href="/"><span class="one">1</span><span class="on">on</span><span class="one">1</span></a>
+  <div>
+    <a href="/how-it-works.html">How it works</a>
+    <a href="/for-hosts.html">For hosts</a>
+    <a href="/support.html">Support</a>
+    <a href="/todo.html">To-do</a>
+    <a href="/legal/">Legal</a>
+  </div>
+</nav>
+
   <h1>Legal</h1>
   <p class="sub">The documents that govern and explain how 1on1 works.</p>
   <ul>
