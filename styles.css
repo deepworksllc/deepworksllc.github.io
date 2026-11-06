@@ -82,8 +82,8 @@
   .item h3{margin:0 0 3px;font-size:18px;font-weight:600;line-height:1.3}
   .item h3 a{color:var(--ink)}
   .item h3 a:hover{color:var(--link-hover)}
-  .deals{padding:16px 0 4px}
-  .deals-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+  .deals-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap;
+              padding:14px 16px;border-bottom:1px solid var(--border)}
   .deals-head h2{margin:0;font-size:19px}
   .deals-head p{margin:0;font-size:13px;color:var(--muted)}
 
