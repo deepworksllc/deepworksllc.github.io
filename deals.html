@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEEP Works</title>
+<meta name="description" content="Holiday deals picked by DEEP Works for Thanksgiving week. Sold on Amazon.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap inner">
+    <a class="logo" href="index.html">DEEP <b>Works</b></a>
+    <form class="search" role="search" onsubmit="return false">
+      <input id="q" type="search" placeholder="Search deals" aria-label="Search deals" autocomplete="off">
+      <button type="submit" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>
+      </button>
+    </form>
+    <a class="nav-link" href="index.html">All items</a>
+    <a class="nav-link" href="https://www.instagram.com/deep______talks/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</header>
+
+<nav class="cats">
+  <div class="wrap inner">
+    <a href="index.html">All items</a>
+    <a href="index.html#shop">Books &amp; eBooks</a>
+    <a href="index.html#shop">Self-Help</a>
+    <a href="index.html#shop">Success</a>
+    <a href="deals.html" aria-current="page">Holiday deals</a>
+  </div>
+</nav>
+
+<div class="wrap crumbs">
+  <a href="index.html">Home</a><i>&rsaquo;</i><a href="index.html">Books</a><i>&rsaquo;</i>Holiday deals
+</div>
+
+<h1 class="vh">Holiday deals at DEEP Works</h1>
+
+<section class="deals" id="deals">
+  <div class="wrap">
+    <div class="deals-head">
+      <h2>Holiday deals</h2>
+      <p>Thanksgiving-week picks from Amazon. Prices and availability are set by Amazon and change without notice.</p>
+    </div>
+
+    <div class="panel" id="deal-list">
+      <div class="bar">
+        <p id="count"><strong>0</strong> deals</p>
+        <p>Thanksgiving week</p>
+      </div>
+
+      <!-- To add a deal, copy the block below, paste it here, and fill in the four
+           placeholders: ASIN, the affiliate link, the title, and search keywords.
+
+      <article class="item" data-search="KEYWORDS">
+        <div class="thumbbox">
+          <img class="thumb-img"
+               src="https://m.media-amazon.com/images/P/ASIN.01._SCLZZZZZZZ_SX500_.jpg"
+               alt="Describe the item"
+               width="167" height="250" loading="lazy" decoding="async"
+               onload="this.nextElementSibling.style.display='none';"
+               onerror="this.remove();">
+          <div class="cover" aria-hidden="true"><b>ITEM</b><span>Amazon</span></div>
+        </div>
+        <div>
+          <h3><a href="AFFILIATE-LINK" target="_blank" rel="sponsored nofollow noopener">Item title</a></h3>
+          <p class="byline">Short descriptor</p>
+          <p class="price">See price on Amazon</p>
+          <div class="actions">
+            <a class="buy" href="AFFILIATE-LINK" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
+            <span class="tag">Deal</span>
+          </div>
+        </div>
+      </article>
+      -->
+
+      <p class="empty show" id="deals-empty">No deals listed yet &mdash; Thanksgiving-week picks will appear here later this month.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fcols">
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="index.html">All items</a></li>
+        <li><a href="index.html#shop">Books &amp; eBooks</a></li>
+        <li><a href="deals.html">Holiday deals</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/deep______talks/" target="_blank" rel="noopener">@deep______talks on Instagram</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>How ordering works</h4>
+      <p>Listings open on the seller's own site. Payment, delivery, and returns are handled there, not on this page.</p>
+    </div>
+  </div>
+  <div class="wrap fbase">
+    <span>&copy; DEEP Works LLC</span>
+    <span>Purchases are completed on Amazon.com</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var q = document.getElementById('q'),
+      items = [].slice.call(document.querySelectorAll('[data-search]')),
+      empty = document.getElementById('deals-empty'),
+      count = document.getElementById('count');
+  function run() {
+    var term = (q.value || '').trim().toLowerCase(), hits = 0;
+    items.forEach(function (el) {
+      var match = !term || el.getAttribute('data-search').toLowerCase().indexOf(term) > -1;
+      el.style.display = match ? '' : 'none';
+      if (match) hits++;
+    });
+    count.innerHTML = hits
+      ? '<strong>1&ndash;' + hits + ' of ' + hits + '</strong> ' + (hits === 1 ? 'deal' : 'deals')
+      : '<strong>0</strong> deals';
+    empty.style.display = hits ? 'none' : 'block';
+  }
+  q.addEventListener('input', run);
+  run();
+})();
+</script>
+
+</body>
+</html>
