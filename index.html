@@ -3,111 +3,173 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>DEEP Works · Enterprise integration, modernized</title>
-<meta name="description" content="DEEP Works is an enterprise integration services company. We help organizations modernize from proprietary platforms like TIBCO to open-source Spring Boot, incrementally, safely, and with your team in control." />
+<title>DEEP Works Store · Digital reads &amp; handpicked picks</title>
+<meta name="description" content="DEEP Works Store: a small, curated shop of digital reads and handpicked products. Some links are affiliate links, clearly disclosed." />
 <style>
-  :root { color-scheme: light; }
+  :root {
+    color-scheme: light;
+    --ink: #0f172a;
+    --body: #475569;
+    --muted: #64748b;
+    --line: #e2e8f0;
+    --tint: #f0fdfa;
+    --tint-line: #99f6e4;
+    --accent: #0d9488;
+    --accent-dark: #0f766e;
+    --dark: #0b1220;
+  }
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
-    color: #0f172a; background: #fff; line-height: 1.6;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
   }
   .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
-  header.site { border-bottom: 1px solid #e2e8f0; background: #fff; position: sticky; top: 0; z-index: 10; }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: #0f172a; text-decoration: none; }
-  .brand em { font-style: normal; color: #0d9488; }
-  nav.links a { margin-left: 22px; color: #334155; text-decoration: none; font-weight: 600; font-size: 15px; }
-  nav.links a:hover, nav.links a[aria-current="page"] { color: #0d9488; }
-  nav.links a.ext::after { content: " ↗"; font-size: 12px; }
-  .hero { padding: 88px 0 56px; text-align: center; }
-  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #0d9488; background: #f0fdfa; border: 1px solid #99f6e4; border-radius: 999px; padding: 6px 14px; margin-bottom: 22px; }
-  h1 { font-size: 44px; line-height: 1.12; letter-spacing: -0.03em; margin: 0 0 18px; }
-  h1 .accent { color: #0d9488; }
-  .sub { font-size: 19px; color: #475569; max-width: 720px; margin: 0 auto 30px; }
-  .checks { list-style: none; padding: 0; margin: 0 0 34px; color: #334155; font-weight: 600; }
-  .checks li { margin: 6px 0; }
-  .checks li::before { content: "✓ "; color: #0d9488; }
+
+  header.site { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.92); position: sticky; top: 0; z-index: 10; backdrop-filter: saturate(180%) blur(8px); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .brand { font-weight: 800; font-size: 20px; letter-spacing: -0.02em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .brand em { font-style: normal; color: var(--accent); }
+  .brand span.store { font-weight: 600; color: var(--muted); font-size: 15px; letter-spacing: 0; }
+  nav.links { display: flex; align-items: center; gap: 22px; }
+  nav.links a { color: #334155; text-decoration: none; font-weight: 600; font-size: 15px; }
+  nav.links a:hover, nav.links a:focus-visible { color: var(--accent); }
+
+  .hero { padding: 76px 0 44px; text-align: center; }
+  .eyebrow { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--tint); border: 1px solid var(--tint-line); border-radius: 999px; padding: 6px 14px; margin-bottom: 20px; }
+  h1 { font-size: 44px; line-height: 1.12; letter-spacing: -0.03em; margin: 0 0 16px; }
+  h1 .accent { color: var(--accent); }
+  .sub { font-size: 19px; color: var(--body); max-width: 640px; margin: 0 auto 28px; }
   .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-  .btn { display: inline-block; padding: 14px 30px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; }
-  .btn-primary { background: #0f172a; color: #fff; }
+  .btn { display: inline-block; padding: 14px 30px; border-radius: 999px; font-weight: 700; text-decoration: none; font-size: 16px; border: 2px solid transparent; }
+  .btn-primary { background: var(--ink); color: #fff; }
   .btn-primary:hover { background: #1e293b; }
-  .btn-ghost { background: #fff; color: #0f172a; border: 2px solid #cbd5e1; }
-  .btn-ghost:hover { border-color: #0d9488; color: #0d9488; }
-  section { padding: 56px 0; }
+  .btn-ghost { background: #fff; color: var(--ink); border-color: #cbd5e1; }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  section { padding: 44px 0; }
   section.alt { background: #f8fafc; border-top: 1px solid #eef2f7; border-bottom: 1px solid #eef2f7; }
-  h2 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 10px; text-align: center; }
-  .section-sub { text-align: center; color: #475569; max-width: 680px; margin: 0 auto 36px; }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-  .card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 22px; }
-  section.alt .card { background: #fff; }
-  .card h3 { margin: 0 0 8px; font-size: 17px; }
-  .card p { margin: 0; color: #475569; font-size: 14.5px; }
-  .icon { display: inline-flex; width: 40px; height: 40px; border-radius: 10px; background: #f0fdfa; border: 1px solid #99f6e4; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; }
-  footer.site { background: #0b1220; color: #94a3b8; margin-top: 24px; }
+  .section-head { text-align: center; margin-bottom: 32px; }
+  h2 { font-size: 30px; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .section-sub { color: var(--body); max-width: 620px; margin: 0 auto; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+  .card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+  .card:hover { border-color: var(--accent); box-shadow: 0 8px 24px rgba(15,23,42,.07); transform: translateY(-2px); }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .badge { font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; color: var(--accent-dark); background: var(--tint); border: 1px solid var(--tint-line); }
+  .badge.neutral { color: var(--muted); background: #f1f5f9; border-color: var(--line); }
+  .cover { font-size: 40px; line-height: 1; margin-bottom: 12px; }
+  .card h3 { margin: 0 0 4px; font-size: 19px; letter-spacing: -0.01em; }
+  .card .byline { margin: 0 0 12px; font-size: 13.5px; color: var(--muted); font-weight: 600; }
+  .card p.desc { margin: 0 0 18px; color: var(--body); font-size: 15px; }
+  .card .spacer { flex: 1 1 auto; }
+  .meta { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .price { font-weight: 800; font-size: 16px; }
+  .price small { display: block; font-weight: 500; font-size: 12px; color: var(--muted); }
+  .card .btn { text-align: center; padding: 12px 22px; font-size: 15px; }
+  .card .btn-primary::after { content: " ↗"; font-size: 13px; }
+
+  .disclosure { background: var(--tint); border: 1px solid var(--tint-line); border-radius: 16px; padding: 26px 28px; }
+  .disclosure h2 { font-size: 21px; text-align: left; margin-bottom: 8px; }
+  .disclosure p { margin: 0; color: #334155; font-size: 15px; }
+  .disclosure p + p { margin-top: 10px; }
+  .disclosure a { color: var(--accent-dark); font-weight: 600; }
+
+  .note-line { text-align: center; font-size: 13.5px; color: var(--muted); margin: 22px auto 0; max-width: 620px; }
+
+  footer.site { background: var(--dark); color: #94a3b8; margin-top: 20px; }
   .footer-inner { padding: 34px 24px; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; align-items: center; }
   .footer-inner a { color: #e2e8f0; text-decoration: none; font-weight: 600; }
   .footer-inner a:hover { color: #5eead4; }
   .small { font-size: 14px; }
+
   @media (max-width: 860px) {
-    h1 { font-size: 34px; }
-    .grid { grid-template-columns: 1fr; }
-    nav.links a { margin-left: 12px; font-size: 14px; }
-    .hero { padding: 56px 0 40px; }
+    h1 { font-size: 33px; }
+    .hero { padding: 54px 0 34px; }
+    nav.links { gap: 14px; }
+    nav.links a { font-size: 14px; }
+    .brand span.store { display: none; }
   }
 </style>
 </head>
 <body>
+
 <header class="site">
   <div class="wrap nav-inner">
-    <a class="brand" href="index.html">DEEP <em>Works</em></a>
+    <a class="brand" href="/">DEEP <em>Works</em> <span class="store">Store</span></a>
     <nav class="links">
-      <a href="services.html">Services</a>
-      <a href="migration.html">Migration playbook</a>
-      <a href="about.html">About</a>
+      <a href="#shop">Shop</a>
+      <a href="#disclosure">Disclosure</a>
+      <a href="mailto:deepworksllc2030@gmail.com">Contact</a>
     </nav>
   </div>
 </header>
 
 <main>
   <div class="wrap hero">
-    <span class="eyebrow">Enterprise Integration Services</span>
-    <h1>Leave proprietary lock-in behind.<br /><span class="accent">Keep every business flow running.</span></h1>
-    <p class="sub">DEEP Works helps organizations modernize from proprietary integration platforms like <strong>TIBCO</strong> to open-source <strong>Spring Boot</strong>, incrementally, safely, and with your team in the driver's seat.</p>
-    <ul class="checks">
-      <li>TIBCO BusinessWorks / EMS → Spring Boot specialists</li>
-      <li>Strangler-fig migrations with no big-bang cutovers</li>
-      <li>Open source, zero license lockdown</li>
-    </ul>
+    <span class="eyebrow">Digital reads &amp; handpicked picks</span>
+    <h1>A small shop, <span class="accent">carefully chosen</span>.</h1>
+    <p class="sub">Short, useful digital reads and the occasional product worth owning. Nothing here is filler — if it's listed, it earned the spot.</p>
     <div class="cta-row">
-      <a class="btn btn-primary" href="mailto:deepworksllc2030@gmail.com">Start a conversation</a>
-      <a class="btn btn-ghost" href="migration.html">See the migration playbook</a>
+      <a class="btn btn-primary" href="#shop">Browse the shop</a>
+      <a class="btn btn-ghost" href="#disclosure">How links work</a>
     </div>
   </div>
 
-  <section class="alt">
+  <section class="alt" id="shop">
     <div class="wrap">
-      <h2>What we do</h2>
-      <p class="section-sub">Everything you need to move an integration estate off proprietary middleware, from the first audit to the day your own engineers own the platform.</p>
-      <div class="grid">
-        <div class="card"><span class="icon">🧭</span><h3>Integration modernization</h3><p>Assess and re-platform aging ESB/integration estates onto maintainable, open-source foundations.</p></div>
-        <div class="card"><span class="icon">🔁</span><h3>TIBCO → Spring Boot migration</h3><p>BusinessWorks processes, EMS topologies, and adapters rebuilt as Spring Boot services and Spring Integration flows.</p></div>
-        <div class="card"><span class="icon">🔌</span><h3>API &amp; event architecture</h3><p>REST APIs, event-driven design, Kafka/AMQP messaging, and gateway strategy that outlive any single vendor.</p></div>
-        <div class="card"><span class="icon">☁️</span><h3>Cloud-native delivery</h3><p>Containers, CI/CD pipelines, and Kubernetes operations for integration workloads, the way modern platforms ship.</p></div>
-        <div class="card"><span class="icon">🗺️</span><h3>Legacy audits &amp; roadmaps</h3><p>A full inventory of your integrations, a risk-and-cost model, and a sequenced migration plan you can defend to the board.</p></div>
-        <div class="card"><span class="icon">🎓</span><h3>Team enablement</h3><p>Pairing, training, and documentation until your engineers run the new stack without us. No permanent dependency.</p></div>
+      <div class="section-head">
+        <h2>Shop</h2>
+        <p class="section-sub">Listed items open on the seller's own site, where you complete the purchase.</p>
       </div>
+
+      <div class="grid">
+
+        <article class="card">
+          <div class="badges">
+            <span class="badge">eBook</span>
+            <span class="badge neutral">Affiliate</span>
+          </div>
+          <div class="cover" aria-hidden="true">📕</div>
+          <h3>It Works</h3>
+          <p class="byline">The Famous Little Red Book That Makes Your Dreams Come True! · R. H. Jarrett</p>
+          <p class="desc">A very short 1926 classic — under thirty pages — built on three plain rules for getting clear about what you want and actually moving toward it. Millions of readers, zero filler.</p>
+          <div class="spacer"></div>
+          <div class="meta">
+            <span class="price">Kindle edition<small>See current price on Amazon</small></span>
+          </div>
+          <a class="btn btn-primary" href="https://link.amazon/B0hNIgfp9" target="_blank" rel="sponsored nofollow noopener">View on Amazon</a>
+        </article>
+
+      </div>
+
+      <p class="note-line">More titles and digital downloads are added here as they're vetted.</p>
     </div>
   </section>
 
+  <section id="disclosure">
+    <div class="wrap">
+      <div class="disclosure">
+        <h2>Affiliate disclosure</h2>
+        <p>As an Amazon Associate, DEEP Works LLC earns from qualifying purchases. When you buy through the link on this site, the seller may pay a small commission at no extra cost to you.</p>
+        <p>Commission never changes what gets listed or how it's described. Prices, availability, and the terms of any purchase are set entirely by the seller — you check out on their site, not this one.</p>
+        <p>Questions about an order? Reach us at <a href="mailto:deepworksllc2030@gmail.com">deepworksllc2030@gmail.com</a>.</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer class="site">
   <div class="wrap footer-inner">
-    <span class="small">© 2026 DEEP Works LLC · Enterprise Integration Services</span>
+    <span class="small">© 2026 DEEP Works LLC · Store</span>
     <span class="small"><a href="mailto:deepworksllc2030@gmail.com">deepworksllc2030@gmail.com</a></span>
   </div>
 </footer>
+
 </body>
 </html>
